@@ -35,10 +35,10 @@ umount /mnt
 
 sleep 5
 
-mount -o noatime,compress=zstd,space_cache,discard=async,subvol=@ /dev/mapper/cryptio /mnt
+mount -o noatime,compress=zstd,space_cache=v2,discard=async,subvol=@ /dev/mapper/cryptio /mnt
 mkdir /mnt/home
 mount
-mount -o noatime,compress=zstd,space_cache,discard=async,subvol=@home /dev/mapper/cryptio /mnt/home
+mount -o noatime,compress=zstd,space_cache=v2,discard=async,subvol=@home /dev/mapper/cryptio /mnt/home
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
