@@ -65,8 +65,14 @@ clear
 blkid
 
 read -p "Please enter UUID: " uuid
-sed -i 's|^GRUB_CMDLINE_LINUX_DEFAULT=.*|GRUB_CMDLINE_LINUX_DEFAULT=loglevel=3 quiet cryptdevice=UUID='$uuid':cryptio root=/dev/mapper/cryptio|g' /etc/default/grub
+sed -i 's|^GRUB_CMDLINE_LINUX_DEFAULT=.*|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID='$uuid':cryptio root=/dev/mapper/cryptio"|g' /etc/default/grub
+
+echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+
+
+passwd
 
 exit
