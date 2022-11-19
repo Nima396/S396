@@ -55,7 +55,7 @@ clear
 systemctl enable NetworkManager
  
 sed -i "s|^MODULES=.*|MODULES=(amdgpu btrfs)|g" /etc/mkinitcpio.conf
-sed -i "s|^HOOKS=.*|HOOKS=(base udev autodetect modconf block encrypt filesystem keyboard fsck)|g" /etc/mkinitcpio.conf
+sed -i "s|^HOOKS=.*|HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)|g" /etc/mkinitcpio.conf
 
 mkinitcpio -p linux
 
